@@ -5,4 +5,3 @@ flower = 38
 while True:
     x, y, z = mc.player.getPos()
     mc.setBlock(x, y, x, flower)
-
