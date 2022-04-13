@@ -11,6 +11,9 @@ x,y,z = mc.player.getTilePos()
 
 
 def text(text, toScreen = True, userInput = True):
+    """
+    this is a comment 
+    """
     if toScreen == True:
        mc.postToChat(text)
     if userInput == True:
