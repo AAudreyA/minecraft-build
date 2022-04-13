@@ -11,15 +11,15 @@ x,y,z = mc.player.getTilePos()
 
 
 def text(text, toScreen = True, userInput = True):
-    """_summary_
+    """ This function takes user input to send a custom message to the Minecraft chat and the command line and then accepts user input to impact how the program moves forward. 
 
     Args:
-        text (_type_): _description_
-        toScreen (bool, optional): _description_. Defaults to True.
-        userInput (bool, optional): _description_. Defaults to True.
+        text (str): _description_
+        toScreen (bool, optional): the toScreen keyword argument posts whatever text it is given to the Minecraft chat and the command line interface. Defaults to True.
+        userInput (bool, optional): the userInput keyword argument is responsible for letting a user interact with the program in the command line interface. Defaults to True.
 
     Returns:
-        _type_: _description_
+        str: _description_
     """    
     if toScreen == True:
        mc.postToChat(text)
