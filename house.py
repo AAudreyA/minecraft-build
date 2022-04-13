@@ -11,9 +11,16 @@ x,y,z = mc.player.getTilePos()
 
 
 def text(text, toScreen = True, userInput = True):
-    """
-    this is a comment 
-    """
+    """_summary_
+
+    Args:
+        text (_type_): _description_
+        toScreen (bool, optional): _description_. Defaults to True.
+        userInput (bool, optional): _description_. Defaults to True.
+
+    Returns:
+        _type_: _description_
+    """    
     if toScreen == True:
        mc.postToChat(text)
     if userInput == True:
@@ -41,9 +48,21 @@ randomBase = [block.COBBLESTONE.id, block.STONE.id,block.SANDSTONE.id, block.MOS
 
 
 def build_house(x,y,z,randomBase):
-   
+    """_summary_
+
+    Args:
+        x (int): _description_
+        y (int): _description_
+        z (int): _description_
+        randomBase (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """    
     randomBlock = random.choices(randomBase)
-    
+    """ the code bellow i modified from a magasiene project i did a few years ago.
+    """
+
     #walls
     mc.setBlocks(x, y, z+3, x+4, y+4, z+9, randomBlock)
     mc.setBlocks(x+1, y, z+4, x+4-1, y+4, z+8, block.AIR.id)
