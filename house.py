@@ -94,8 +94,8 @@ def build_house(x,y,z,randomBase):
         mc.setBlocks(x+4-i, y+4+i, z+2, x+4-i, y+4+i, z+10, block.STAIRS_WOOD.id, 1)
         
         if (int(4/2) - i > 0):
-            mc.setBlocks(x+1+i, y+4+i, z+3, x+4-i-1, y+4+i, z+3, block.COBBLESTONE.id, 0)
-            mc.setBlocks(x+1+i, y+4+i, z+9, x+4-i-1, y+4+i, z+9, block.COBBLESTONE.id, 1)
+            mc.setBlocks(x+1+i, y+4+i, z+3, x+4-i-1, y+4+i, z+3, randomBlock, 0)
+            mc.setBlocks(x+1+i, y+4+i, z+9, x+4-i-1, y+4+i, z+9, randomBlock, 1)
     return x,y,z 
 
 
