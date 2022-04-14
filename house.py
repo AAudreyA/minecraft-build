@@ -79,7 +79,7 @@ def build_house(x,y,z,randomBase):
         int: the x, y, and z positions to start building a house 
     """    
     randomBlock = random.choices(randomBase)
-    """ the code bellow i modified from a magasiene project i did a few years ago.
+    """ The code below I modified from a public magazine project in magpi issue 68 I copied around four years ago. 
     """
 
     #walls
