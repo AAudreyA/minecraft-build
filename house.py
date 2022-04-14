@@ -48,16 +48,16 @@ randomBase = [block.COBBLESTONE.id, block.STONE.id,block.SANDSTONE.id, block.MOS
 
 
 def build_house(x,y,z,randomBase):
-    """_summary_
-
+    """this function builds each house in the village, including randomizing the texture of it, using the x, y, and z coordinates
+    
     Args:
-        x (int): _description_
-        y (int): _description_
-        z (int): _description_
-        randomBase (_type_): _description_
+        x (int): the x position to start each building. It is the position of the player the first time before x is changed by the code to make the whole village 
+        y (int): _description_: the y position to start each building. It is the y position of the player  
+        z (int): _description_: the z position to start each building. It is the z position of the player 
+        randomBase (list): an argument that randomly changes the material of each house in a village 
 
     Returns:
-        _type_: _description_
+        int: the x, y, and z positions to start building a house 
     """    
     randomBlock = random.choices(randomBase)
     """ the code bellow i modified from a magasiene project i did a few years ago.
