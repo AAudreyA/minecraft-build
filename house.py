@@ -1,9 +1,9 @@
-# mc.setBlocks(x, y, z, x, y, z, block..id)
 #!/usr/bin/env python3
-from mcpi.minecraft import Minecraft
-from mcpi import block
-import time
 import random
+import time
+
+from mcpi import block
+from mcpi.minecraft import Minecraft
 
 time.sleep(2)
 mc = Minecraft.create()
@@ -11,12 +11,18 @@ x,y,z = mc.player.getTilePos()
 
 
 def text(text, toScreen = True, userInput = True):
-    """ This function takes user input to send a custom message to the Minecraft chat and the command line and then accepts user input to impact how the program moves forward. 
+    """ This function takes user input to send a custom message to the Minecraft 
+        chat and the command line and then accepts user input to impact how the 
+        program moves forward. 
 
     Args:
         text (str): _description_
-        toScreen (bool, optional): the toScreen keyword argument posts whatever text it is given to the Minecraft chat and the command line interface. Defaults to True.
-        userInput (bool, optional): the userInput keyword argument is responsible for letting a user interact with the program in the command line interface. Defaults to True.
+        toScreen (bool, optional): the toScreen keyword argument posts whatever 
+            text it is given to the Minecraft chat and the command line interface. 
+            Defaults to True.
+        userInput (bool, optional): the userInput keyword argument is responsible 
+            for letting a user interact with the program in the command line 
+            interface. Defaults to True.
 
     Returns:
         str: _description_
@@ -34,6 +40,7 @@ num_village = int(text(f"How many houses would you like in your village {name}?"
 text(f"Presenting {name}ville!", userInput = False)
 text("building village . . . ",toScreen = False, userInput = False)
 
+
 village = [0]
 
 for n in range(num_village):
@@ -43,18 +50,30 @@ for n in range(num_village):
     else:
         village.append(7)
   
-randomBase = [block.COBBLESTONE.id, block.STONE.id,block.SANDSTONE.id, block.MOSS_STONE.id, block.BRICK_BLOCK.id, block.STONE_BRICK.id, block.NETHER_BRICK.id]
-
-
+randomBase = [
+    block.COBBLESTONE.id, 
+    block.STONE.id,
+    block.SANDSTONE.id, 
+    block.MOSS_STONE.id, 
+    block.BRICK_BLOCK.id, 
+    block.STONE_BRICK.id, 
+    block.NETHER_BRICK.id
+    ]
 
 def build_house(x,y,z,randomBase):
-    """this function builds each house in the village, including randomizing the texture of it, using the x, y, and z coordinates
+    """this function builds each house in the village, including randomizing the 
+        texture of it, using the x, y, and z coordinates
     
     Args:
-        x (int): the x position to start each building. It is the position of the player the first time before x is changed by the code to make the whole village 
-        y (int): _description_: the y position to start each building. It is the y position of the player  
-        z (int): _description_: the z position to start each building. It is the z position of the player 
-        randomBase (list): an argument that randomly changes the material of each house in a village 
+        x (int): the x position to start each building. It is the position of the 
+            player the first time before x is changed by the code to make the whole 
+            village 
+        y (int): _description_: the y position to start each building. It is the 
+            y position of the player  
+        z (int): _description_: the z position to start each building. It is the 
+            z position of the player 
+        randomBase (list): an argument that randomly changes the material of each 
+            house in a village 
 
     Returns:
         int: the x, y, and z positions to start building a house 
@@ -98,15 +117,13 @@ def build_house(x,y,z,randomBase):
             mc.setBlocks(x+1+i, y+4+i, z+9, x+4-i-1, y+4+i, z+9, randomBlock, 1)
     return x,y,z 
 
+for v in village:
+     x += v
+     build_house(x,y,z,randomBase)
 
 
 #village = [0,7, 10,7]
 #x_pos = x-(sum(village)/len(village))
 #mc.camera.setPos(x_pos, y+20 , z)
-
-for v in village:
-     x += v
-     build_house(x,y,z,randomBase)
-
 #mc.setBlocks(x-100, y, z-100, x+100, y+30, z+100, block.AIR.id)
 #mc.setBlocks(x-100, y, z-100, x+100, y, z+100, block.SAND.id)
