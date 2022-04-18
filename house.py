@@ -76,7 +76,7 @@ def build_house(x,y,z,randomBase):
             house in a village 
 
     Returns:
-        int: the x, y, and z positions to start building a house 
+        int: the x, y, and z ending positions yo use as inputs to start building a new house
     """    
     randomBlock = random.choices(randomBase)
     """ The code below I modified from a public magazine project in magpi issue 68 I copied around four years ago. 
