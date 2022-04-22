@@ -16,7 +16,8 @@ def text(text, toScreen = True, userInput = True):
         program moves forward. 
 
     Args:
-        text (str): _description_
+        text (str): text is the output of the function which apears in the comand 
+            line interface and the minecraft chat 
         toScreen (bool, optional): the toScreen keyword argument posts whatever 
             text it is given to the Minecraft chat and the command line interface. 
             Defaults to True.
@@ -25,7 +26,7 @@ def text(text, toScreen = True, userInput = True):
             interface. Defaults to True.
 
     Returns:
-        str: _description_
+        str: whatever is assigned to the text argument at the time it is posted
     """    
     if toScreen == True:
        mc.postToChat(text)
