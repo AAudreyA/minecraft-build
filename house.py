@@ -5,6 +5,7 @@ import time
 from mcpi import block
 from mcpi.minecraft import Minecraft
 
+
 time.sleep(2)
 mc = Minecraft.create()
 x,y,z = mc.player.getTilePos()
@@ -41,15 +42,18 @@ num_village = int(text(f"How many houses would you like in your village {name}?"
 text(f"Presenting {name}ville!", userInput = False)
 text("building village . . . ",toScreen = False, userInput = False)
 
+def build_village
+    village = [0]
 
-village = [0]
-
-for n in range(num_village):
-    p = n % 3
-    if p == 0:
-        village.append(10)
-    else:
-        village.append(7)
+    for n in range(num_village):
+        p = n % 3
+        if p == 0:
+            village.append(10)
+        else:
+            village.append(7)
+    for v in village:
+     x += v
+     build_house(x,y,z,randomBase)
   
 randomBase = [
     block.COBBLESTONE.id, 
@@ -118,9 +122,7 @@ def build_house(x,y,z,randomBase):
             mc.setBlocks(x+1+i, y+4+i, z+9, x+4-i-1, y+4+i, z+9, randomBlock, 1)
     return x,y,z 
 
-for v in village:
-     x += v
-     build_house(x,y,z,randomBase)
+
 
 
 #village = [0,7, 10,7]
@@ -128,3 +130,5 @@ for v in village:
 #mc.camera.setPos(x_pos, y+20 , z)
 #mc.setBlocks(x-100, y, z-100, x+100, y+30, z+100, block.AIR.id)
 #mc.setBlocks(x-100, y, z-100, x+100, y, z+100, block.SAND.id)
+
+if __name__ == "__main__" 
