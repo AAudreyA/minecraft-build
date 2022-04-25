@@ -72,7 +72,7 @@ def build_village(x,y,z,randomBase):
 
 def build_house(x,y,z,randomBase):
     """this function builds each house in the village, including randomizing the 
-        texture of it, using the x, y, and z coordinates
+        texture of it, using the x, y, and z coordinates.
     
     Args:
         x (int): the x position to start each building. It is the position of the 
