@@ -6,9 +6,18 @@ from mcpi import block
 from mcpi.minecraft import Minecraft
 
 
-time.sleep(2)
 mc = Minecraft.create()
 x,y,z = mc.player.getTilePos()
+
+randomBase = [
+    block.COBBLESTONE.id, 
+    block.STONE.id,
+    block.SANDSTONE.id, 
+    block.MOSS_STONE.id, 
+    block.BRICK_BLOCK.id, 
+    block.STONE_BRICK.id, 
+    block.NETHER_BRICK.id
+    ]
 
 
 def text(text, toScreen = True, userInput = True):
@@ -34,15 +43,19 @@ def text(text, toScreen = True, userInput = True):
     if userInput == True:
         var = input(text)
         return var 
-    
-name = text("What is your name?")
-text(f"hi hello {name}fgdhfgnfhftn",userInput = False)
-num_village = int(text(f"How many houses would you like in your village {name}?"))
-# if num_village <
-text(f"Presenting {name}ville!", userInput = False)
-text("building village . . . ",toScreen = False, userInput = False)
 
-def build_village
+def build_village(x,y,z,randomBase):
+    time.sleep(2)
+    text("Please make sure Minecraft is running and type your responses in the terminal.", 
+    userInput=False)
+    text("Press enter to continue.")
+
+    name = text("What is your name?")
+    text(f"hi hello {name}",userInput = False)
+    num_village = int(text(f"How many houses would you like in your village {name}?"))
+    # if num_village <
+    text(f"Presenting {name}ville!", userInput = False)
+    text("building village . . . ",toScreen = False, userInput = False)
     village = [0]
 
     for n in range(num_village):
@@ -52,18 +65,10 @@ def build_village
         else:
             village.append(7)
     for v in village:
-     x += v
-     build_house(x,y,z,randomBase)
+        x += v
+        build_house(x,y,z,randomBase)
+    text(f"go explore {name}ville")
   
-randomBase = [
-    block.COBBLESTONE.id, 
-    block.STONE.id,
-    block.SANDSTONE.id, 
-    block.MOSS_STONE.id, 
-    block.BRICK_BLOCK.id, 
-    block.STONE_BRICK.id, 
-    block.NETHER_BRICK.id
-    ]
 
 def build_house(x,y,z,randomBase):
     """this function builds each house in the village, including randomizing the 
@@ -84,7 +89,10 @@ def build_house(x,y,z,randomBase):
         int: the x, y, and z ending positions yo use as inputs to start building a new house
     """    
     randomBlock = random.choices(randomBase)
-    """ The code below I modified from a public magazine project in magpi issue 68. I copied around four years ago. 
+    """ The code below I modified from a public magazine project in magpi issue 
+    68 that I did around four years ago. The idea of building a house is thiers but 
+    the dimentions and some of the materials and placements where my code as well 
+    as the random blocks
     """
 
     #walls
@@ -106,29 +114,21 @@ def build_house(x,y,z,randomBase):
     # stairs
     mc.setBlocks(x+2, y, z+2,x+2, y, z+2, block.STAIRS_WOOD.id,2)
 
-    #add wood deails
-    mc.setBlocks(x, y+4, z+3, x+4, y+4, z+3, block.WOOD.id,)
-    mc.setBlocks(x, y+4, z+9, x+4, y+4, z+9, block.WOOD.id,)
-    mc.setBlocks(x, y+4, z+3, x, y+4, z+9, block.WOOD.id,)
-    mc.setBlocks(x+4, y+4, z+3, x+4, y+4, z+9, block.WOOD.id,)
-
     # roof
-    for i in range(4):
-        mc.setBlocks(x-1+i, y+4+i, z+2, x-2+i, y+4+i, z+10, block.STAIRS_WOOD.id, 0)
-        mc.setBlocks(x+4-i, y+4+i, z+2, x+4-i, y+4+i, z+10, block.STAIRS_WOOD.id, 1)
-        
+    for i in range(3):
+        mc.setBlocks(x-1+i, y+3+i, z+2, x-1+i, y+3+i, z+10, block.STAIRS_WOOD.id, 0)
+        mc.setBlocks(x+5-i, y+3+i, z+2, x+5-i, y+3+i, z+10, block.STAIRS_WOOD.id, 1)
+        mc.setBlocks(x+2, y+5, z+2, x+2, y+5, z+10, block.WOOD_PLANKS.id)
+
         if (int(4/2) - i > 0):
             mc.setBlocks(x+1+i, y+4+i, z+3, x+4-i-1, y+4+i, z+3, randomBlock, 0)
             mc.setBlocks(x+1+i, y+4+i, z+9, x+4-i-1, y+4+i, z+9, randomBlock, 1)
     return x,y,z 
 
 
+def clearAll (x,y,z):
+    mc.setBlocks(x-500,y,z-500,x+500,y+50,z+500, block.AIR)
 
-
-#village = [0,7, 10,7]
-#x_pos = x-(sum(village)/len(village))
-#mc.camera.setPos(x_pos, y+20 , z)
-#mc.setBlocks(x-100, y, z-100, x+100, y+30, z+100, block.AIR.id)
-#mc.setBlocks(x-100, y, z-100, x+100, y, z+100, block.SAND.id)
-
-if __name__ == "__main__" 
+if __name__ == "__main__":
+    #clearAll(x=x, y=y, z=z)
+    build_village(x=x,y=y,z=z,randomBase=randomBase)
