@@ -54,15 +54,14 @@ def build_village(x,y,z,randomBase):
         randomBase (list): list of block for random wall blocks
     """
     time.sleep(2)
-    text(
-        "Please make sure Minecraft is running. Press any key to continue.")
-    # userInput=False)
-    # text("Press any key to continue.")
+    text("Please make sure Minecraft is running.",  userInput = False)
+    text("Press any key to continue.")
 
     name = text("What is your name? ")
     text(f"Hello {name}",userInput = False)
+
     num_village = int(text(f"How many houses would you like in each row of your village {name}? "))
-    # if num_village <
+
     text(f"Presenting {name}ville!", userInput = False)
     text("building village . . . ",toScreen = False, userInput = False)
     village = [0]
@@ -73,6 +72,7 @@ def build_village(x,y,z,randomBase):
             village.append(10)
         else:
             village.append(7)
+
     x_ = x
     for v in village:
         randomBlock = random.choices(randomBase)
@@ -84,7 +84,7 @@ def build_village(x,y,z,randomBase):
         x += v
         build_house(x,y,z-12,randomBlock)
     
-
+    time.sleep(1)
     text(f"go explore {name}ville",  userInput = False)
 
 
