@@ -45,7 +45,7 @@ def text(text, toScreen = True, userInput = True):
         return var 
 
 def build_village(x,y,z,randomBase):
-    """Communicates with the user, and collects their info to build a village.
+    """Communicates with the user and collects their info to build a village.
 
     Args:
         x (int): player x location
@@ -145,7 +145,7 @@ def build_house(x,y,z,randomBlock):
 
 
 def clearAll (x,y,z):
-    """Clears all the blocks so there is a flat surface to build the village.
+    """Clears all the blocks, so there is a flat surface to build the village.
 
     Args:
         x (int): player x location
