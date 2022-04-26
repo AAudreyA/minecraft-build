@@ -45,32 +45,35 @@ def text(text, toScreen = True, userInput = True):
         return var 
 
 def build_village(x,y,z,randomBase):
+
     time.sleep(2)
     text("Please make sure Minecraft is running and type your responses in the terminal.", 
     userInput=False)
     text("Press enter to continue.")
 
-    name = text("What is your name?")
-    text(f"hi hello {name}",userInput = False)
-    num_village = int(text(f"How many houses would you like in your village {name}?"))
+    name = text("What is your name? ")
+    text(f"Hello {name}",userInput = False)
+    num_village = int(text(f"How many houses would you like in your village {name}? "))
     # if num_village <
     text(f"Presenting {name}ville!", userInput = False)
     text("building village . . . ",toScreen = False, userInput = False)
     village = [0]
 
-    for n in range(num_village):
+    for n in range(num_village-1):
         p = n % 3
         if p == 0:
             village.append(10)
         else:
             village.append(7)
     for v in village:
+        randomBlock = random.choices(randomBase)
         x += v
-        build_house(x,y,z,randomBase)
-    text(f"go explore {name}ville")
-  
+        build_house(x,y,z,randomBlock)
 
-def build_house(x,y,z,randomBase):
+    text(f"go explore {name}ville",  userInput = False)
+
+
+def build_house(x,y,z,randomBlock):
     """this function builds each house in the village, including randomizing the 
         texture of it, using the x, y, and z coordinates.
     
@@ -88,7 +91,7 @@ def build_house(x,y,z,randomBase):
     Returns:
         int: the x, y, and z ending positions yo use as inputs to start building a new house
     """    
-    randomBlock = random.choices(randomBase)
+
     """ The code below I modified from a public magazine project in magpi issue 
     68 that I did around four years ago. The idea of building a house is thiers but 
     the dimentions and some of the materials and placements where my code as well 
@@ -130,5 +133,5 @@ def clearAll (x,y,z):
     mc.setBlocks(x-500,y,z-500,x+500,y+50,z+500, block.AIR)
 
 if __name__ == "__main__":
-    #clearAll(x=x, y=y, z=z)
+    clearAll(x=x, y=y, z=z)
     build_village(x=x,y=y,z=z,randomBase=randomBase)
