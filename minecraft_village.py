@@ -45,7 +45,14 @@ def text(text, toScreen = True, userInput = True):
         return var 
 
 def build_village(x,y,z,randomBase):
+    """Communicates with the user, and collects their info to build a village.
 
+    Args:
+        x (int): player x location
+        y (int): player y location
+        z (int): player z location
+        randomBase (list): list of block for random wall blocks
+    """
     time.sleep(2)
     text("Please make sure Minecraft is running and type your responses in the terminal.", 
     userInput=False)
@@ -130,6 +137,13 @@ def build_house(x,y,z,randomBlock):
 
 
 def clearAll (x,y,z):
+    """Clears all the blocks so there is a flat surface to build the village.
+
+    Args:
+        x (int): player x location
+        y (int): player y location
+        z (int): player z location
+    """    
     mc.setBlocks(x-500,y,z-500,x+500,y+50,z+500, block.AIR)
 
 if __name__ == "__main__":
