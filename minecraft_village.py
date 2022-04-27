@@ -55,7 +55,7 @@ def build_village(x,y,z,randomBase):
     """
     time.sleep(2)
     text("Please make sure Minecraft is running.",  userInput = False)
-    text("Press any key to continue.")
+    text("Press enter to continue.")
 
     name = text("What is your name? ")
     text(f"Hello {name}",userInput = False)
