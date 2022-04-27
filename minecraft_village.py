@@ -59,9 +59,7 @@ def build_village(x,y,z,randomBase):
 
     name = text("What is your name? ")
     text(f"Hello {name}",userInput = False)
-
     num_village = int(text(f"How many houses would you like in each row of your village {name}? "))
-
     text(f"Presenting {name}ville!", userInput = False)
     text("building village . . . ",toScreen = False, userInput = False)
     village = [0]
